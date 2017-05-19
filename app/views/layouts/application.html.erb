@@ -8,12 +8,37 @@
   </head>
   <body>
   
-  <div class="container">
-   <ul class="nav nav-tabs">
-    <li><%= link_to "Home", welcome_index_path %></li>
-  </ul>
+  <div class="container home-font">
+
+    <div class="row header-footer">
+     
+        <div class="col-md-6">
+          <%= link_to "Blocipedia", welcome_index_path %>
+        </div>
+        
+        <div class="col-md-6"><span class="pull-right">
+         <% if user_signed_in? %>
+           <span class="glyphicon glyphicon-user">&nbsp;</span> <strong><%= current_user.email %></strong> |
+           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+         <% else %>
+           <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+         <% end %>
+         </span>
+        </div>
+       
+    </div>
+    
+
+
 
   <%= yield %>
+ 
+   <div class="row header-footer">
+     <div style="text-align: center;">
+       Copyright &nbsp;<span class="glyphicon glyphicon-copyright-mark"></span>&nbsp;2017
+     </div>
+   </div>
+  
   </div>
   
   </body>
