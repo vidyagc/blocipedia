@@ -1,3 +1,21 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div  style="margin: 15px auto; text-align: center;">
+    <span id="pedia-title">Blocipedia: Social, Markdown Wikis</span>
 
+    <div id="signup-box" style="margin:15px auto;">
+        <span style="font-size: 19px;" class="space-span">Create and share Markdown Wikis</span>
+        <span class="space-span"><%= link_to "Sign Up", new_user_registration_path, class: 'home-font btn btn-default' %></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" style="padding-left: 6.5cm;">
+            <h5>Create as many public<br />wikis as you want!</h5>
+            <%= link_to "Free<br />Plan".html_safe, welcome_index_path, class: 'home-font btn btn-default plan' %>
+        </div>
+        
+        <div class="col-md-6" style="padding-right: 6.5cm;">
+            <h5>Create private wikis!<br>&nbsp</h5>
+            <%= link_to "<span class=''>Premium<br />Plan</span>".html_safe, welcome_index_path, class: 'home-font btn btn-default plan' %>
+        </div>
+    </div>
+
+</div>
