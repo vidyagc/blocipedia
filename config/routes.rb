@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+resources :wikis
+
+get 'users/show' #'/users/:id', to: 'users#show'
+
 ## devise controllers for users
 devise_for :user, controllers: {  
   # confirmations: 'users/confirmations',
