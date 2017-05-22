@@ -39,8 +39,10 @@ class WikisController < ApplicationController
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
  
+    authorize @wiki
+ 
     if @wiki.save
-     flash[:notice] = "Post was updated."
+     flash[:notice] = "Wiki was updated."
        redirect_to @wiki
     else
      flash.now[:alert] = "There was an error saving the wiki. Please try again."
