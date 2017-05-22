@@ -13,7 +13,7 @@
     <div class="row header-footer">
      
         <div class="col-md-6">
-          <%= link_to "Blocipedia", welcome_index_path %> &nbsp;|&nbsp; <%= link_to "Browse all Wikis", wikis_path %> &nbsp;|&nbsp; <%= link_to "My Wikis", users_show_path %> &nbsp;|&nbsp; <%= link_to "Create a Wiki!", new_wiki_path %>
+          <%= link_to "Blocipedia", welcome_index_path %> &nbsp;|&nbsp; <%= link_to "Browse all Wikis", wikis_path %> &nbsp;|&nbsp; <% if user_signed_in? %> <%= link_to "My Wikis", users_show_path %> &nbsp;|&nbsp; <% end %><%= link_to "Create a Wiki!", new_wiki_path %>
         </div>
         
         <div class="col-md-6"><span class="pull-right">
