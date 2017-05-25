@@ -2,6 +2,8 @@ require 'amount'
 
 class ChargesController < ApplicationController
 
+before_action :authenticate_user!, except: [:account]
+
  def new
   
   if current_user.role == 'premium'
