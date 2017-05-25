@@ -6,10 +6,6 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     if not (@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin')
       render status: :forbidden
-    # if @wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin'
-    #   super
-    # else 
-    # flash[:error] = 'You are not allowed to perform this function on this Wiki'
    end
   end
   

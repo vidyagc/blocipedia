@@ -36,3 +36,4 @@
  gem 'faker'
  gem 'pundit'
  gem 'stripe'
+ gem 'redcarpet'

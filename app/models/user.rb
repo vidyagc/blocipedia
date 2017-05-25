@@ -5,7 +5,12 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable
-         
+
+  after_initialize :init
+
+    def init
+      self.role  ||= 'standard' 
+    end
          
   def update_role(new_role, customer_id)
     update_attribute(:role, new_role)
