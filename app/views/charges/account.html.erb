@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+    <font size="5"><u>Your Current Plan</u></font>
+    
+    <% if current_user.role == 'premium' %>
+    <p></p> 
+    <font size="5">Premium Account</font>
+        <p>You currently have a Premium account, with a $15/year subscription. Your plan allows you to create private Wikis. Any Wikis that you initially created as public, cannot be changed to private.</p>
+        
+        <p>You can downgrade your plan at any time.</p>
+        
+        <h3 style="color: red">Warning:</h3>By downgrading your plan, any private wikis you currently have will be made public. It is recommended that you review any private wikis prior to downgrading your plan.
+        <span class="space-span"><%= link_to "Downgrade", destroy_charge_path, method: :delete, class: 'home-font btn btn-danger' %></span>
+    
+    <% else %>
+    <p></p> 
+    <font size="5">Standard (Free) Account</font>
+    <p>You currently have a Standard account. This plan is free, and you can create public Wikis.</p> <p>A <strong><font color="dark red">Premium Plan</font></strong> allows you to create private Wikis. Any Wikis that you initially created as public, cannot be changed to private.</p>
+    
+    <%= link_to "<span style='font-weight: bold; font-variant: small-caps; font-size: 20'>Upgrade Here!</span>".html_safe, new_charge_path %>
+    
+    <% end %>
+    
+    
+<% else %>
+    
+    <font size="5" color="red">Free Plan</font>
+    <p>Standard account plans are free, and allow you to create public Wikis. When you initially sign up with Blocipedia, you will have a Standard account.</p>
+    
+    <p></p>  
+    <font size="5" color="red">Premium Plan</font>
+    <p>Premium accounts are a $15/year subscription. This plan allows you to create private Wikis. If you register for this plan, any Wikis that you initially created as public, cannot be changed to private.</p>
+    <p>You can downgrade your plan at any time. By downgrading your plan, any private wikis you created will be made public. It is recommended that you review any private wikis prior to downgrading your plan.</p>
+        
+    <%= link_to "<span style='font-weight: bold; font-variant: small-caps; font-size: 20'>Upgrade Here!</span>".html_safe, new_charge_path %>
+    
+    <% end %>
+    

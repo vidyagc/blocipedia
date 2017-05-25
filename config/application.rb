@@ -41,15 +41,5 @@ module Blocipedia
       domain:         'heroku.com',
       enable_starttls_auto: true
     }
-    
-  # ActionMailer::Base.smtp_settings = {
-  #   :user_name => 'app67841690@heroku.com',
-  #   :password => 'ht7t3oif9743',
-  #   :domain => 'yourdomain.com',
-  #   :address => 'smtp.sendgrid.net',
-  #   :port => 587,
-  #   :authentication => :plain,
-  #   :enable_starttls_auto => true
-  # }
   end
 end

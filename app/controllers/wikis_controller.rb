@@ -1,6 +1,17 @@
 class WikisController < ApplicationController
   
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, :check_permission, except: [:index, :show]
+  
+  def check_permission
+    @wiki = Wiki.find(params[:id])
+    if not (@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin')
+      render status: :forbidden
+    # if @wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin'
+    #   super
+    # else 
+    # flash[:error] = 'You are not allowed to perform this function on this Wiki'
+   end
+  end
   
   def index
     @wikis = Wiki.all
@@ -18,6 +29,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
+    @wiki.private = params[:wiki][:private]
     @wiki.user = current_user
     
     if @wiki.save
@@ -55,7 +67,7 @@ class WikisController < ApplicationController
     
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
-      redirect_to wikis_path
+      redirect_to users_show_path
      else
       flash.now[:alert] = "There was an error deleting the wiki."
       render :show
