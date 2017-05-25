@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   
-  before_action :authenticate_user!, :check_permission, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   
   def check_permission
     @wiki = Wiki.find(params[:id])
