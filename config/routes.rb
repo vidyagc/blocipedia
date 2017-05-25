@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
 resources :wikis
 
+resources :charges, only: [:new, :create]
+
+as :charge do  
+  get 'account_management' => 'charges#account'
+  delete 'downgrade' => 'charges#destroy', as: :destroy_charge
+
+end 
+
 get 'users/show' #'/users/:id', to: 'users#show'
 
 ## devise controllers for users

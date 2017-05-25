@@ -20,7 +20,7 @@ users = User.all
     Wiki.create!(
         title: Faker::Lorem.unique.sentence,
         body: Faker::Lorem.unique.paragraph,
-        private: Faker::Boolean.boolean(true_ratio = 0.5),
+        private: Faker::Boolean.boolean(0.0), # was optional param of 'true_ratio = 0.5'
         user: users.sample
     ) 
 end 

@@ -5,4 +5,16 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable
+         
+         
+  def update_role(new_role, customer_id)
+    update_attribute(:role, new_role)
+    update_attribute(:cid, customer_id)
+    
+    if new_role == 'standard'
+      wikis.where(:private => true).each do |wiki| #where(private: true).each do |wiki|
+        wiki.update_attribute(:private, false)
+      end 
+    end 
+  end 
 end

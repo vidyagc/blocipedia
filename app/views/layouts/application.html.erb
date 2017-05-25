@@ -13,12 +13,12 @@
     <div class="row header-footer">
      
         <div class="col-md-6">
-          <%= link_to "Blocipedia", welcome_index_path %> &nbsp;|&nbsp; <%= link_to "Browse all Wikis", wikis_path %> &nbsp;|&nbsp; <% if user_signed_in? %> <%= link_to "My Wikis", users_show_path %> &nbsp;|&nbsp; <% end %><%= link_to "Create a Wiki!", new_wiki_path %>
+          <%= link_to "Blocipedia", welcome_index_path %>
         </div>
         
         <div class="col-md-6"><span class="pull-right">
          <% if user_signed_in? %>
-           <span class="glyphicon glyphicon-user">&nbsp;</span> <strong><%= current_user.email %></strong> |
+           <span class="glyphicon glyphicon-user">&nbsp;</span> Hello, <strong><%= current_user.email.split("@")[0] %></strong> |
            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
          <% else %>
            <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
@@ -43,8 +43,43 @@
        </div>
      <% end %>
 
-  <%= yield %>
+
+<div class="row"> 
+    <div class="col-md-2">
+
+        <div class="list-group" style="width: 150px;">
+        <span href="#" class="list-group-item active">
+            Explore Blocipedia
+            <span class="pull-right" id="slide-submenu">
+                <i class="fa fa-times"></i>
+            </span>
+        </span>
+        
+        <%= link_to "Home", welcome_index_path, :class => "list-group-item" %>
+        
+        <%= link_to "Browse all Wikis", wikis_path, :class => "list-group-item" %>
+          
+        <%= link_to "Create a Wiki!", new_wiki_path, :class => "list-group-item" %>
+          
+        <% if user_signed_in? %> 
+        <%= link_to "My Wikis", users_show_path, :class => "list-group-item" %> 
+        
+        <%= link_to "My Account", account_management_path, :class => "list-group-item" %> 
+        <% end %>
+        
+
+    </div> 
+    
+    </div>
+    
+    <div class="col-md-10">
  
+            <%= yield %>
+
+    </div>
+
+</div>
+
    <div class="row header-footer">
      <div style="text-align: center;">
        Copyright &nbsp;<span class="glyphicon glyphicon-copyright-mark"></span>&nbsp;2017
