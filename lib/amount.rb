@@ -1,5 +1,5 @@
 class Amount
     def self.default
-        return 10000
+        return 1500
     end
 end

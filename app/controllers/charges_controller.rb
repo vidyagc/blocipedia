@@ -14,7 +14,7 @@ before_action :authenticate_user!, except: [:account]
    @stripe_btn_data = {
      key: "#{ Rails.configuration.stripe[:publishable_key] }",
      description: "BigMoney Membership - #{current_user.email}", # EDIT 1S7 - was current_user.name
-     amount: 1500 # EDIT 1S7 - need to use 'amount: Amount.default' (class with default method)
+     amount: Amount.default #1500 # EDIT 1S7 - need to use 'amount: Amount.default' (class with default method)
    }
   end 
  end
@@ -30,7 +30,7 @@ before_action :authenticate_user!, except: [:account]
    # Where the real magic happens
    charge = Stripe::Charge.create(
      customer: customer.id, # Note -- this is NOT the user_id in your app
-     amount: 1500, # EDIT 1S7 - need to use Amount.default (class with default method)
+     amount: Amount.default, #1500, # EDIT 1S7 - need to use Amount.default (class with default method)
      description: "BigMoney Membership - #{current_user.email}",
      currency: 'usd'
    )
