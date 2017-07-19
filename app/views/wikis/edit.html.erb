@@ -1,4 +1,4 @@
-<% if @wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin'%>
+
 
  <h1>Edit Wiki</h1>
  
@@ -25,6 +25,17 @@
        </div>
      <% end %>
    </div>
+   
+     <% if current_user %>
+ <!-- #20 -->
+       <%= render 'collaborators/form', collaborator: Collaborator.new, wiki: @wiki %>
+     <% end %>
+   
+     <div>
+       <h3>Collaborators</h3>
+       <%= render @wiki.collaborators %>
+     </div>
+   
  </div>
  
- <% end %>
+

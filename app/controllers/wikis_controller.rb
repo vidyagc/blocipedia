@@ -60,6 +60,13 @@ class WikisController < ApplicationController
     @wiki.body = params[:wiki][:body]
  
     #authorize @wiki
+    
+    # if not params[:collab_email]==""
+    #   collab_email = params[:collab_email]
+    #   collab_user=User.find_by(email: collab_email)
+    #   @wiki.collaborators.build(user: collab_user)
+    # end 
+    
  
     if @wiki.save
      flash[:notice] = "Wiki was updated."

@@ -33,6 +33,12 @@ end
 
   root 'welcome#index'
 
+ # #4
+   resources :wikis, only: [] do
+ # #5
+     resources :collaborators, only: [:create, :destroy]
+   end
+
 end 
 
 
