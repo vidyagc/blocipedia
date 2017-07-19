@@ -9,11 +9,11 @@ class CollaboratorsController < ApplicationController
      if collaborator.save
        flash[:notice] = "Collaborator saved successfully."
  # #12
-       redirect_to [@wiki] #[@post.topic, @post]
+       redirect_to edit_wiki_path(@wiki)
      else
        flash[:alert] = "Collaborator failed to save."
  # #13
-       redirect_to [@wiki] #[@post.topic, @post]
+       redirect_to edit_wiki_path(@wiki)
      end
    end
  
@@ -23,10 +23,10 @@ class CollaboratorsController < ApplicationController
  
      if collaborator.destroy
        flash[:notice] = "Collaborator was deleted."
-       redirect_to [@wiki]
+       redirect_to edit_wiki_path(@wiki)
      else
        flash[:alert] = "Collaborator couldn't be deleted. Try again."
-       redirect_to [@wiki]
+       redirect_to edit_wiki_path(@wiki)
      end
    end
  
