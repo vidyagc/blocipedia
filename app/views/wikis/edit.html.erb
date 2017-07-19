@@ -26,15 +26,15 @@
      <% end %>
    </div>
    
-     <% if current_user %>
+    <% if user_is_authorized_for_collaborator?(@wiki) %>
  <!-- #20 -->
        <%= render 'collaborators/form', collaborator: Collaborator.new, wiki: @wiki %>
-     <% end %>
    
      <div>
        <h3>Collaborators</h3>
        <%= render @wiki.collaborators %>
      </div>
+       <% end %>
    
  </div>
  
