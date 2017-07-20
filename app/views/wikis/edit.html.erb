@@ -29,10 +29,12 @@
     <% if user_is_authorized_for_collaborator?(@wiki) %>
        <%= render 'collaborators/form', collaborator: Collaborator.new, wiki: @wiki %>
    
+   <% if @wiki.collaborators %>
      <div>
        <%= render @wiki.collaborators %>
      </div>
     <% end %>
+   <% end %>
    
  </div>
  

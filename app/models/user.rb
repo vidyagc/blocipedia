@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
     if new_role == 'standard'
       wikis.where(:private => true).each do |wiki| #where(private: true).each do |wiki|
         wiki.update_attribute(:private, false)
+        wiki.collaborators.destroy_all
       end 
     end 
   end 

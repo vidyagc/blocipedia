@@ -1,15 +1,15 @@
 class WikisController < ApplicationController
   
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_permission, only: [:show]
+ # before_action :check_permission, only: [:show]
   
   
-  def check_permission
-    @wiki = Wiki.find(params[:id])
-    if not @user #(@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin')
-      render status: :forbidden
-    end
-  end
+  # def check_permission
+  #   @wiki = Wiki.find(params[:id])
+  #   if not @user #(@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin')
+  #     render status: :forbidden
+  #   end
+  # end
   
   def index
    @wikis = policy_scope(Wiki)

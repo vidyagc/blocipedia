@@ -6,7 +6,7 @@
       
         <div class="form-group">
          <%= f.label :emailid, class: 'sr-only' %>
-         <%= f.text_field :emailid, class: 'form-control', placeholder: "Enter email address" %>
+         <%= f.text_field :emailid, class: 'form-control', placeholder: "Enter email address", :required => 'required' %>
         </div>
         <div class="form-group">
          <%= f.submit "Submit Collaborator", class: 'btn btn-info pull-left' %>
