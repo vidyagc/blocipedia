@@ -30,3 +30,7 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+
+The report function in 'app/assets/javascripts/application.js' uses a POST request to create an event on the server. This was done to create an event for the Blocmetrics project in User Story 7. 
