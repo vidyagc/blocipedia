@@ -41,20 +41,20 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
 config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
- config.action_mailer.delivery_method = :smtp
-config.action_mailer.perform_deliveries = true 
-config.action_mailer.raise_delivery_errors = true
-config.action_mailer.default :charset => "utf-8"
+#  config.action_mailer.delivery_method = :smtp
+# config.action_mailer.perform_deliveries = true 
+# config.action_mailer.raise_delivery_errors = true
+# config.action_mailer.default :charset => "utf-8"
 
   
-      ActionMailer::Base.smtp_settings = {
-      address:        'smtp.sendgrid.net',
-      port:           '2525',
-      authentication: :plain,
-      user_name:      ENV['SENDGRID_USERNAME'],
-      password:       ENV['SENDGRID_PASSWORD'],
-      domain:         'heroku.com',
-      enable_starttls_auto: true
-    }
+#       ActionMailer::Base.smtp_settings = {
+#       address:        'smtp.sendgrid.net',
+#       port:           '2525',
+#       authentication: :plain,
+#       user_name:      ENV['SENDGRID_USERNAME'],
+#       password:       ENV['SENDGRID_PASSWORD'],
+#       domain:         'heroku.com',
+#       enable_starttls_auto: true
+#     }
 
 end
