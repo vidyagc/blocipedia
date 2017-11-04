@@ -37,6 +37,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
+    @wiki.image = params[:wiki][:image]
     @wiki.private = params[:wiki][:private]
     @wiki.user = current_user
     
@@ -58,6 +59,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
+    @wiki.image = params[:wiki][:image] unless params[:wiki][:image].nil?
  
     #authorize @wiki
     
@@ -67,7 +69,6 @@ class WikisController < ApplicationController
     #   @wiki.collaborators.build(user: collab_user)
     # end 
     
- 
     if @wiki.save
      flash[:notice] = "Wiki was updated."
        redirect_to @wiki
@@ -88,5 +89,15 @@ class WikisController < ApplicationController
       render :show
     end
   end
+
+def delete_image
+  @wiki = Wiki.find(params[:id])
+  @wiki.image.destroy #Will remove the attachment and save the model
+  @wiki.save
+  flash[:notice] = 'Wiki image photo has been removed.' 
+  redirect_to @wiki
+
+  #@user.avatar.clear #Will queue the attachment to be deleted
+end
   
 end

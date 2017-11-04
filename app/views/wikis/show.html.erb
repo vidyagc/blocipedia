@@ -4,6 +4,10 @@
  <div class="col-md-8">
   <h1><%= markdown(@wiki.title) %></h1>
   <p><%= markdown(@wiki.body) %></p>
+  <% if @wiki.image.exists? %>
+   <%= image_tag @wiki.image.url(:medium) %>
+  <% end %>
+  
  </div>
  
  <% if user_signed_in? %>

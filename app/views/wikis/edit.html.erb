@@ -21,16 +21,29 @@
          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
        </div>
        <div class="form-group">
+         <% if @wiki.image.exists? %>
+          <label for="image">Current Image</label><br>
+          <%= image_tag @wiki.image.url(:thumb) %>
+          <br><br>
+         <% end %>
+         <label for="image"><% if @wiki.image.exists? %>Replace <% end %>Image</label><br>
+         <%= f.file_field :image %>
+         <% if @wiki.image.exists? %>
+         <br>
+         <label for="image"><%= link_to "Remove Image", {action: :delete_image, id: @wiki.id}, method: :put, :style=>'color: red;' %></lable>
+         <% end %>
+       </div>
+       <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
        </div>
      <% end %>
    </div>
-   
     <% if user_is_authorized_for_collaborator?(@wiki) %>
        <%= render 'collaborators/form', collaborator: Collaborator.new, wiki: @wiki %>
    
    <% if @wiki.collaborators %>
      <div>
+      <p><u><h3>Collaborators</h3></u></p>
        <%= render @wiki.collaborators %>
      </div>
     <% end %>

@@ -36,9 +36,13 @@ devise_for :users
 
  # #4
    resources :wikis, only: [] do
+    member do
+      put :delete_image
+    end
  # #5
      resources :collaborators, only: [:create, :destroy]
    end
+
 
 end 
 
