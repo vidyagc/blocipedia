@@ -13,8 +13,8 @@ before_action :authenticate_user!, except: [:account]
   else 
    @stripe_btn_data = {
      key: "#{ Rails.configuration.stripe[:publishable_key] }",
-     description: "BigMoney Membership - #{current_user.email}", # EDIT 1S7 - was current_user.name
-     amount: Amount.default 
+     description: "BigMoney Membership - #{current_user.email}", 
+     amount: Amount.default
    }
   end 
  end

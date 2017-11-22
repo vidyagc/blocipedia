@@ -1,4 +1,4 @@
  <%= form_tag charges_path do %>
    <h4>Premium accounts are a $15 annual subscription. <br /> Make a payment below to start creating Private Wikis!</h4><br />
-   <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
+   <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-allow-remember-me="false" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
  <% end %>
