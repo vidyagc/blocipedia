@@ -4,7 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag params[:wikis] %>
+        <%= stylesheet_link_tag params[:collaborators] %>
     <%= csrf_meta_tags %>
+    
   </head>
   <body>
   
@@ -91,6 +94,26 @@
    </div>
   
   </div>
+  
+//   <script>
+      
+//       $(function() {
+//   $('#pictureInput').on('change', function(event) {
+//     var files = event.target.files;
+//     var image = files[0]
+//     var reader = new FileReader();
+//     reader.onload = function(file) {
+//       var img = new Image();
+//       console.log(file);
+//       img.src = file.target.result;
+//       $('#target').html(img);
+//     }
+//     reader.readAsDataURL(image);
+//     console.log(files);
+//   });
+// });
+      
+//   </script>
   
   </body>
   </html>

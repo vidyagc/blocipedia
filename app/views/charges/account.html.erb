@@ -10,7 +10,7 @@
         <p>You can downgrade your plan at any time.</p>
         
         <h3 style="color: red">Warning:</h3>By downgrading your plan, any private wikis you currently have will be made public. It is recommended that you review any private wikis prior to downgrading your plan.
-        <span class="space-span"><%= link_to "Downgrade", destroy_charge_path, method: :delete, class: 'home-font btn btn-danger' %></span>
+        <span class="space-span"><%= link_to "Downgrade", destroy_charge_path, method: :delete, class: 'home-font btn btn-danger',data: {confirm: "Are you sure?"} %></span>
     
     <% elsif current_user.role == 'admin' %>
         <h3 style="color: red">You are signed in as an Admin</h3>

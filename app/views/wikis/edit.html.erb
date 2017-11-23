@@ -9,6 +9,10 @@
        <li>Curse words not allowed and will be censored.</li>
        <li>Language indicating direct threats will be censored and reported to authorities.</li>
      </ul>
+     
+
+<h4 style="margin-top:20px"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes">Markdown Cheatsheet</a></h4>
+     
    </div>
    <div class="col-md-8">
      <%= form_for @wiki do |f| %>
@@ -38,16 +42,6 @@
        </div>
      <% end %>
    </div>
-    <% if user_is_authorized_for_collaborator?(@wiki) %>
-       <%= render 'collaborators/form', collaborator: Collaborator.new, wiki: @wiki %>
-   
-   <% if @wiki.collaborators %>
-     <div>
-      <p><u><h3>Collaborators</h3></u></p>
-       <%= render @wiki.collaborators %>
-     </div>
-    <% end %>
-   <% end %>
    
  </div>
  

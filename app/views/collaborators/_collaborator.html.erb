@@ -1,12 +1,8 @@
 
- <div class="media media-body">
-   <div class="media-body">
-    <table>   
-        <tr valign="bottom" align="left">
-            <th> <font size="3"><%= collaborator.emailid %></font>&nbsp;&nbsp;</th>
-            <th> &nbsp;<%= link_to "Delete", [@wiki, collaborator], method: :delete, :style=>'color:red' %></th>
+
+  
+        <tr valign="bottom">
+            <td align="left"> <font size="3"><%= collaborator.emailid %></font></td>
+            <td align="middle"><%= link_to "Delete", [@wiki, collaborator], method: :delete, :style=>'color:red' %></td>
         </tr>
-    </table>
-   </div>
- </div>
- <br>
+

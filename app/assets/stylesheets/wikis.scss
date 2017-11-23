@@ -1,3 +1,24 @@
 // Place all the styles related to the Wikis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+p { 
+//   white-space: pre-wrap;      /* CSS3 */   
+//   white-space: -moz-pre-wrap; /* Firefox */    
+//   white-space: -pre-wrap;     /* Opera <7 */   
+//   white-space: -o-pre-wrap;   /* Opera 7 */    
+  word-wrap: break-word;      /* IE */
+}
+
+td:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+td:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+td:only-child{
+    border-radius: 6px 6px 0 0;
+}
