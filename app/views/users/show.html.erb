@@ -14,4 +14,5 @@
  <%= link_to "Create a Wiki!", new_wiki_path, class: 'home-font btn btn-default' %>
  </div>
  
+<%= render "collaborators/show", collaborators: Collaborator.all %>
  

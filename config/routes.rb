@@ -13,7 +13,7 @@ end
 get 'users/show' #'/users/:id', to: 'users#show'
 
 ## devise controllers for users
-devise_for :users
+devise_for :user
 # , controllers: {  
 #   # confirmations: 'users/confirmations',
 #   passwords: 'users/passwords',

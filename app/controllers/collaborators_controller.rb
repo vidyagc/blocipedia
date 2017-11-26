@@ -1,18 +1,16 @@
 class CollaboratorsController < ApplicationController
 
    def create
- # #11
      @wiki = Wiki.find(params[:wiki_id])
      collaborator = @wiki.collaborators.new(collab_params)
-     #comment.user = current_user
  
      if collaborator.save
        flash[:notice] = "Collaborator saved successfully."
- # #12
+       
        redirect_to wiki_path(@wiki)
      else
        flash[:alert] = "Collaborator failed to save."
- # #13
+
        redirect_to wiki_path(@wiki)
      end
    end
@@ -32,7 +30,6 @@ class CollaboratorsController < ApplicationController
  
    private
  
- # #14
    def collab_params
      params.require(:collaborator).permit(:emailid)
    end
