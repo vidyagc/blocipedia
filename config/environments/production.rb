@@ -81,6 +81,6 @@ config.serve_static_assets = true
 
 config.assets.precompile << "*.css"
 
-    config.action_mailer.default_url_options = { host: 'https://bloc-project-vrc17.c9users.io/' }
+    config.action_mailer.default_url_options = { host: 'https://vn-wikit.herokuapp.com' }
 
 end
