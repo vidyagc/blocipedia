@@ -17,7 +17,10 @@ class WikisController < ApplicationController
 
   def show
     
-    @wiki = Wiki.find(params[:id])
+      @wiki = Wiki.find(params[:id]) 
+
+    rescue ActiveRecord::RecordNotFound
+  redirect_to root_url, :flash => { :alert => "Record not found." }
     # if @user 
     #   if not (@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin')
     #     render status: :forbidden

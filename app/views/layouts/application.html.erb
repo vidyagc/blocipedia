@@ -16,7 +16,7 @@
     <div class="row header-footer">
      
         <div class="col-xs-6">
-          <%= link_to "Blocipedia", welcome_index_path %>
+          <%= link_to "Wikit", welcome_index_path %>
           
             <% if user_signed_in? && current_user.role == 'standard' %> &nbsp | &nbsp
                  <%= link_to "Upgrade", account_management_path, :class => 'navbar-link' %> to create private Wikis! 

@@ -44,13 +44,18 @@
     
 <% else %>
 
-    <font size="5" color="red">Free Plan</font>
-    <p>Standard account plans are free, and allow you to create public Wikis. When you initially sign up with Blocipedia, you will have a Standard account.</p>
-    
-    <p></p>  
-    <font size="5" color="red">Premium Plan</font>
-    <p>Premium accounts are a $15/year subscription. This plan allows you to create new private Wikis. Any Wikis that you initially create as public (under a Standard or Premium Plan), however, cannot be changed to private later on.</p>
-    <p>You can downgrade your plan at any time. By downgrading your plan, any private wikis you created will be made public. It is recommended that you review any private wikis prior to downgrading your plan.</p>
+        <div class="header">Standard Account</div>
+        <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Create public Wikis</p>
+        <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Free plan with account sign up</p>
+        <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Upgrade at any time!</p>
+       
+             <p>&nbsp;</p> 
+    <div class="header"><font color="blue">Premium Account</font></div>
+    <p><span class="glyphicon glyphicon-ok"></span>Create new private wikis</p>
+    <p><span class="glyphicon glyphicon-ok"></span>Add collaborators to private wikis</p> 
+    <p><span class="glyphicon glyphicon-ok"></span>Downgrade your plan at any time</p>
+    <p><span class="glyphicon glyphicon-ok"></span>$15 / year subscription</p>
+    <p><span class="glyphicon glyphicon-asterisk"></span>Any wikis that you initially create as public cannot be changed to private</p>
         
     <%= link_to "<span style='font-weight: bold; font-variant: small-caps; font-size: 20; color: #FFFFFF;'>Upgrade Here!</span>".html_safe, new_charge_path %>
     
