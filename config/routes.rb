@@ -7,46 +7,26 @@ resources :charges, only: [:new, :create]
 as :charge do  
   get 'account_management' => 'charges#account'
   delete 'downgrade' => 'charges#destroy', as: :destroy_charge
-
 end 
 
 get 'users/show' #'/users/:id', to: 'users#show'
 
-## devise controllers for users
 devise_for :user
-# , controllers: {  
-#   # confirmations: 'users/confirmations',
-#   passwords: 'users/passwords',
-#   registrations: 'users/registrations',
-#   sessions: 'users/sessions',
-#   # unlocks: 'users/unlocks',
-# }, skip: [:sessions]
 
-## custom routes for users
-# as :user do  
-#   get 'login' => 'users/sessions#new', as: :new_user_session
-#   post 'login' => 'users/sessions#create', as: :user_session
-#   delete 'logout' => 'users/sessions#destroy', as: :destroy_user_session
-#   get 'register' => 'users/registrations#new'
-# end
+get 'welcome/index'
 
-  get 'welcome/index'
+root 'welcome#index'
 
-  root 'welcome#index'
-
- # #4
-   resources :wikis, only: [] do
+resources :wikis, only: [] do
     member do
       put :delete_image
     end
- # #5
+
      resources :collaborators, only: [:create, :destroy]
    end
 
 
 end 
-
-
 
 
 

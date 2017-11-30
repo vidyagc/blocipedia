@@ -4,15 +4,14 @@
    <div class="media">
      <div class="media-body">
        <h4 class="media-heading">
-         <%= link_to markdown(wiki.title), wiki %>
+         <%= link_to markdown(wiki.title), wiki, class: 'wrap' %>
        </h4>
      </div>
    </div>
  <% end %>
  
- <div style="margin-top: 20px">
- <%= link_to "Create a Wiki!", new_wiki_path, class: 'home-font btn btn-default' %>
- </div>
- 
 <%= render "collaborators/show", collaborators: Collaborator.all %>
  
+ <div style="margin-top: 60px">
+ <%= link_to "Create a Wiki!", new_wiki_path, class: 'home-font btn btn-default' %>
+ </div>
