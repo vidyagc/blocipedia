@@ -26,8 +26,9 @@
    gem 'rspec-rails'
    gem 'shoulda'
    gem 'faker'
-   gem 'factory_girl_rails'
+   #gem 'factory_girl_rails'
    gem 'pry-rails'
+  gem 'factory_bot_rails'
  end
  
  gem 'bootstrap-sass'

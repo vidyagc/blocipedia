@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :collaborator do
     emailid "MyString"
     wiki nil
