@@ -17,6 +17,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.bgimg {
+  // background-image: url("globe-bg.png");
+}
+
 .header-footer {
   background-color: #f2edf7;
   position: relative;
@@ -39,6 +43,16 @@ span.glyphicon {
 	font-size: 19px;
 	font-style: normal;
 	font-variant: normal;
+	font-weight: 400;
+
+	padding-bottom: 15px;
+}
+
+.pedia-heading {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	font-size: 23px;
+	font-style: normal;
+	font-variant: small-caps;
 	font-weight: 400;
 
 	padding-bottom: 15px;
