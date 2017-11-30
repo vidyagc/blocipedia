@@ -42,7 +42,7 @@ before_action :authenticate_user!, except: [:account]
    current_user.update_role('premium', customer.id)
    
    flash[:notice] = "Thank you for your payment of #{view_context.number_to_currency(charge.amount/100)}, #{current_user.email}. You can begin creating private Wikis!"
-   redirect_to users_show_path 
+   redirect_to account_management_path 
  
    rescue Stripe::CardError => e
      flash[:alert] = e.message
@@ -52,13 +52,13 @@ before_action :authenticate_user!, except: [:account]
  def destroy
   if current_user.role == 'standard'
     flash[:alert] = "You already have a Standard account."
-    redirect_to users_show_path 
+    redirect_to account_management_path 
   else 
     cu = Stripe::Customer.retrieve(current_user.cid)
     cu.delete
     current_user.update_role('standard', nil)
     flash[:notice] = "#{current_user.email}, your Premium account has been downgraded back to a Standard account."
-    redirect_to users_show_path 
+    redirect_to account_management_path 
    end 
  end 
  

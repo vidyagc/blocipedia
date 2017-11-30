@@ -11,7 +11,7 @@ end
 
 get 'users/show' #'/users/:id', to: 'users#show'
 
-devise_for :user
+devise_for :user, controllers: { registrations: "registrations" }
 
 get 'welcome/index'
 

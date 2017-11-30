@@ -1,61 +1,91 @@
 <% if user_signed_in? %>
-
-    <font size="5">Your Current Plan</font>
-<p></p>    
+   
     
     <% if current_user.role == 'premium' %>
-    <div class="header"><font color="blue">Premium Account</font></div>
-    <p><span class="glyphicon glyphicon-ok"></span>Create new private wikis</p>
-    <p><span class="glyphicon glyphicon-ok"></span>Add collaborators to private wikis</p> 
+    
+<div class="row">
+
+<div class="col-md-4">
+    <font size="5">Your Current Plan</font>
+<p></p>  
+    <div class="acct-opts">
+    <div class="header inner"><font color="blue">Premium Account</font></div>
+    <p><span class="glyphicon glyphicon-ok"></span><font size="3em"><b>Create private wikis</b></font></p>
+    <p><span class="glyphicon glyphicon-ok"></span>Add collaborators to private wikis</p>
     <p><span class="glyphicon glyphicon-ok"></span>Downgrade your plan at any time</p>
     <p><span class="glyphicon glyphicon-ok"></span>$15 / year subscription</p>
-    <p><span class="glyphicon glyphicon-asterisk"></span>Any wikis that you initially created as public cannot be changed to private</p>
+    <p><span class="glyphicon glyphicon-asterisk"></span>Any wikis that you initially <span style="margin-left:30px">created as public cannot be</span> <span style="margin-left:30px">changed to private</span></p>
+    </div>
+    </div>
 
-       <p>&nbsp;</p> 
-        <div class="header"><font color="crimson">Downgrade Warning</font></div>
-   
-        <p><span class="glyphicon glyphicon-warning-sign"></span>Any private wikis you currently have will be made public</p>
-        <p><span class="glyphicon glyphicon-warning-sign"></span>It is recommended that you review any private wikis prior to downgrading your plan</p>
-        <span class="space-span"><%= link_to "Downgrade", destroy_charge_path, method: :delete, class: 'home-font btn btn-danger', :data => {:confirm => "Are you sure you want to downgrade? This will make your private wikis public"} %></span>
+<div class="col-md-4">
+
+    <font size="5">Downgrade</font>
+<p></p>  
+    <div class="acct-opts">
+        <div class="header inner"><font color="crimson">Downgrade Warning</font></div>
+        <p><span class="glyphicon glyphicon-warning-sign"></span>Any private wikis you currently <span style="margin-left:30px">have will be made public</span></p>
+        <p><span class="glyphicon glyphicon-warning-sign"></span>It is recommended that you <span style="margin-left:30px">review any private wikis prior to</span> <span style="margin-left:30px">downgrading your plan</span></p>
+        <div class="inner" style="padding-top: 5px;"><span class="space-span"><%= link_to "Downgrade", destroy_charge_path, method: :delete, class: 'home-font btn btn-danger', :data => {:confirm => "Are you sure you want to downgrade? This will make your private wikis public"} %></span></div>
+    </div>
+</div>
+</div>
+    
     
     <% elsif current_user.role == 'admin' %>
         <h3 style="color: red">You are signed in as an Admin</h3>
         <p>As an Admin, you can access and edit all public and private Wikis.</p>
         
     <% else %>
-        <div class="header">Standard Account</div>
-        <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Create public Wikis</p>
+    
+<div class="row">
+
+<div class="col-md-4">
+    <font size="5">Your Current Plan</font>
+<p></p>  
+<div class="acct-opts">
+        <div class="header inner">Standard Account</div>
+        <p><span class="glyphicon glyphicon-ok" style="color:black"></span><font size="3em"><b>Create public Wikis</b></font></p>
         <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Free plan with account sign up</p>
         <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Upgrade at any time!</p>
-       
-             <p>&nbsp;</p> 
-    <div class="header"><font color="blue">Premium Account</font></div>
-    <p><span class="glyphicon glyphicon-ok"></span>Create new private wikis</p>
-    <p><span class="glyphicon glyphicon-ok"></span>Add collaborators to private wikis</p>   
+      </div>
+    </div>
+
+<div class="col-md-4">
+    <font size="5">Upgrade</font>
+<p></p>  
+    <div class="acct-opts">
+    <div class="header inner"><font color="blue">Premium Account</font></div>
+    <p><span class="glyphicon glyphicon-ok"></span><font size="3em"><b>Create private wikis</b></font></p>
+    <p><span class="glyphicon glyphicon-ok"></span>Add collaborators to private wikis</p>
     <p><span class="glyphicon glyphicon-ok"></span>Downgrade your plan at any time</p>
     <p><span class="glyphicon glyphicon-ok"></span>$15 / year subscription</p>
-    <p><span class="glyphicon glyphicon-asterisk"></span>Any wikis that you initially created as public cannot be changed to private</p>
-        
-        <%= link_to "<span style='font-weight: bold; font-variant: small-caps; font-size: 20'>Upgrade Here!</span>".html_safe, new_charge_path %>
-        <p></p>
+    <p><span class="glyphicon glyphicon-asterisk"></span>Any wikis that you initially <span style="margin-left:30px">created as public cannot be</span> <span style="margin-left:30px">changed to private</span></p>
+   <div class="inner" style="padding-top: 10px;"><%= link_to "<span style='font-weight: bold; font-variant: small-caps; font-size: 16;' class='btn btn-default'>Upgrade Here!</span>".html_safe, new_charge_path %>
+        </div>
+    </div>
+
+    </div>
+</div>
    
     <% end %>
     
     
 <% else %>
 
-        <div class="header">Standard Account</div>
-        <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Create public Wikis</p>
+<div class="acct-opts">
+        <div class="header inner">Standard Account</div>
+        <p><span class="glyphicon glyphicon-ok" style="color:black"></span><font size="3em"><b>Create public Wikis</b></font></p>
         <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Free plan with account sign up</p>
         <p><span class="glyphicon glyphicon-ok" style="color:black"></span>Upgrade at any time!</p>
-       
+      </div>
              <p>&nbsp;</p> 
-    <div class="header"><font color="blue">Premium Account</font></div>
-    <p><span class="glyphicon glyphicon-ok"></span>Create new private wikis</p>
-    <p><span class="glyphicon glyphicon-ok"></span>Add collaborators to private wikis</p> 
+    <div class="acct-opts">
+    <div class="header inner"><font color="blue">Premium Account</font></div>
+    <p><span class="glyphicon glyphicon-ok"></span><font size="3em"><b>Create private wikis</b></font></p>
     <p><span class="glyphicon glyphicon-ok"></span>Downgrade your plan at any time</p>
     <p><span class="glyphicon glyphicon-ok"></span>$15 / year subscription</p>
-    <p><span class="glyphicon glyphicon-asterisk"></span>Any wikis that you initially create as public cannot be changed to private</p>
+    </div>
         
     <%= link_to "<span style='font-weight: bold; font-variant: small-caps; font-size: 20; color: #FFFFFF;'>Upgrade Here!</span>".html_safe, new_charge_path %>
     
