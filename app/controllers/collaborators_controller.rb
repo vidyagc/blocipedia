@@ -9,7 +9,11 @@ class CollaboratorsController < ApplicationController
        
        redirect_to wiki_path(@wiki)
      else
-       flash[:alert] = collaborator.errors.messages #.first[1][0]
+         if collaborator.errors.messages.empty?
+             flash[:alert] = "Collaborator could not be saved"
+        else 
+            flash[:alert] = collaborator.errors.messages.first[1][0]
+        end 
 
        redirect_to wiki_path(@wiki)
      end
