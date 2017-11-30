@@ -78,4 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 config.assets.precompile << "*.css"
+
+    config.action_mailer.default_url_options = { host: 'https://bloc-project-vrc17.c9users.io/' }
+
 end
