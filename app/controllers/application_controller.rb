@@ -18,8 +18,7 @@ rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   private
   
   def user_not_authorized
-    flash[:alert] = "You need to be the original Wiki author to update the Wiki"
-    redirect_to(@wiki)
+    redirect_to root_url, :flash => { :alert => "You do not have access to this wiki" } 
   end
   
 end

@@ -17,7 +17,7 @@ class WikiPolicy < ApplicationPolicy
       if user.role == 'admin'
          wikis = scope.all # if the user is an admin, show them all the wikis
       elsif user.role == 'premium'
-         all_wikis = scope.all
+         all_wikis = scope.all 
          all_wikis.each do |wiki|
              wiki.collaborators.each do |collaborator|
                  if user.email == collaborator.emailid
@@ -29,9 +29,10 @@ class WikiPolicy < ApplicationPolicy
              wikis << wiki # if the user is premium, only show them public wikis, or that private wikis they created, or private wikis they are a collaborator on
           end
          end
-      else #if user.role =='standard' # this is the lowly standard user
+      else #if user.role =='standard' 
          all_wikis = scope.all
          wikis = []
+  
          all_wikis.each do |wiki|
              wiki.collaborators.each do |collaborator|
                  if user.email == collaborator.emailid
@@ -52,7 +53,7 @@ class WikiPolicy < ApplicationPolicy
           end
          end
       end
-      wikis # return the wikis array we've built up
+      wikis # return the wikis array that's built up
      end
 
     def update?

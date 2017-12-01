@@ -1,15 +1,22 @@
 class WikisController < ApplicationController
   
   before_action :authenticate_user!, except: [:index, :show]
- # before_action :check_permission, only: [:show]
+  before_action :check_permission, only: [:show]
   
   
-  # def check_permission
-  #   @wiki = Wiki.find(params[:id])
-  #   if not @user #(@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin')
-  #     render status: :forbidden
-  #   end
-  # end
+  def check_permission
+    @wiki = Wiki.find(params[:id])
+    if current_user 
+      if not (@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin' || @wiki.collaborators.where(:emailid => current_user.email))
+        raise Pundit::NotAuthorizedError
+      end
+    else 
+      if not (@wiki.private == false)
+        raise Pundit::NotAuthorizedError
+      end 
+    end 
+    
+  end
   
   def index
    @wikis = policy_scope(Wiki)
@@ -17,19 +24,12 @@ class WikisController < ApplicationController
 
   def show
     
-      @wiki = Wiki.find(params[:id]) 
+      @wiki = Wiki.find(params[:id]) #policy_scope(Wiki.find(params[:id])), undefined method `all' for #<Wiki:0x007fae02556768>, else #if user.role =='standard' # this is the lowly standard user
+         #all_wikis = scope.all
 
     rescue ActiveRecord::RecordNotFound
   redirect_to root_url, :flash => { :alert => "Record not found." }
-    # if @user 
-    #   if not (@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin')
-    #     render status: :forbidden
-    #   end 
-    # else 
-    #   if @wiki.private == true
-    #     render status: :forbidden
-    #   end 
-    # end 
+
   end
 
   def new
@@ -63,14 +63,6 @@ class WikisController < ApplicationController
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
     @wiki.image = params[:wiki][:image] unless params[:wiki][:image].nil?
- 
-    #authorize @wiki
-    
-    # if not params[:collab_email]==""
-    #   collab_email = params[:collab_email]
-    #   collab_user=User.find_by(email: collab_email)
-    #   @wiki.collaborators.build(user: collab_user)
-    # end 
     
     if @wiki.save
      flash[:notice] = "Wiki was updated."
@@ -99,8 +91,6 @@ def delete_image
   @wiki.save
   flash[:notice] = 'Wiki image photo has been removed.' 
   redirect_to @wiki
-
-  #@user.avatar.clear #Will queue the attachment to be deleted
 end
   
 end
