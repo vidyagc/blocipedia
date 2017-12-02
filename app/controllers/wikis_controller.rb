@@ -1,13 +1,13 @@
 class WikisController < ApplicationController
   
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_permission, only: [:show]
+  before_action :check_permission, except: [:index, :new, :create]
   
   
   def check_permission
     @wiki = Wiki.find(params[:id])
     if current_user 
-      if not (@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin' || @wiki.collaborators.where(:emailid => current_user.email))
+      if not (@wiki.private == false || @wiki.user_id == current_user.id || current_user.role == 'admin' || @wiki.collaborators.where(emailid: current_user.email).length == 1)
         raise Pundit::NotAuthorizedError
       end
     else 
@@ -24,7 +24,7 @@ class WikisController < ApplicationController
 
   def show
     
-      @wiki = Wiki.find(params[:id]) #policy_scope(Wiki.find(params[:id])), undefined method `all' for #<Wiki:0x007fae02556768>, else #if user.role =='standard' # this is the lowly standard user
+      @wiki = Wiki.find(params[:id]) 
          #all_wikis = scope.all
 
     rescue ActiveRecord::RecordNotFound
@@ -75,7 +75,6 @@ class WikisController < ApplicationController
 
   def destroy
     @wiki = Wiki.find(params[:id])
-    
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
       redirect_to users_show_path
@@ -84,13 +83,5 @@ class WikisController < ApplicationController
       render :show
     end
   end
-
-# def delete_image
-#   @wiki = Wiki.find(params[:id])
-#   @wiki.image.destroy #Will remove the attachment and save the model
-#   @wiki.save
-#   flash[:notice] = 'Wiki image photo has been removed.' 
-#   render :edit
-# end
   
 end
