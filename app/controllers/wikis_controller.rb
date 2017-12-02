@@ -47,7 +47,6 @@ class WikisController < ApplicationController
     if @wiki.save
       flash[:notice] = "Wiki was saved."
       redirect_to @wiki
-      #redirect_to [@topic, @post]
      else
        flash.now[:alert] = "There was an error saving the wiki. Please try again."
        render :new
@@ -63,6 +62,7 @@ class WikisController < ApplicationController
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
     @wiki.image = params[:wiki][:image] unless params[:wiki][:image].nil?
+    @wiki.remove_image = params[:wiki][:remove_image]
     
     if @wiki.save
      flash[:notice] = "Wiki was updated."
@@ -85,12 +85,12 @@ class WikisController < ApplicationController
     end
   end
 
-def delete_image
-  @wiki = Wiki.find(params[:id])
-  @wiki.image.destroy #Will remove the attachment and save the model
-  @wiki.save
-  flash[:notice] = 'Wiki image photo has been removed.' 
-  redirect_to @wiki
-end
+# def delete_image
+#   @wiki = Wiki.find(params[:id])
+#   @wiki.image.destroy #Will remove the attachment and save the model
+#   @wiki.save
+#   flash[:notice] = 'Wiki image photo has been removed.' 
+#   render :edit
+# end
   
 end

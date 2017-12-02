@@ -27,6 +27,7 @@
          <%= f.label :body %>
          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
        </div>
+       
        <div class="form-group">
          <% if @wiki.image.exists? %>
           <label for="image">Current Image</label><br>
@@ -34,12 +35,19 @@
           <br><br>
          <% end %>
          <label for="image"><% if @wiki.image.exists? %>Replace <% end %>Image</label><br>
-         <%= f.file_field :image %>
+         <%= f.file_field :image %> 
+       </div>
+     
+     OR
+     
+       <div class="form-group">  
          <% if @wiki.image.exists? %>
          <br>
-         <label for="image"><%= link_to "Remove Image", {action: :delete_image, id: @wiki.id}, method: :put, :style=>'color: red;' %></lable>
+         <%= f.check_box :remove_image %>
+         <label for="remove_image", style="color: red;">Remove Image</label>
          <% end %>
        </div>
+       
        <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
        </div>
