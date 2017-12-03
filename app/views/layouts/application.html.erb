@@ -1,100 +1,71 @@
- <html>
-  <head>
-    <title>Wikit</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag params[:wikis] %>
-        <%= stylesheet_link_tag params[:collaborators] %>
-    <%= csrf_meta_tags %>
-    
-  </head>
-  <body>
-  
-  <div class="container home-font">
-
-    <div class="row header-footer">
-     
-        <div class="col-xs-6">
-          <%= link_to "Wikit", welcome_index_path %>
-          
-            <% if user_signed_in? && current_user.role == 'standard' %> &nbsp;|&nbsp;
-                 <%= link_to "Upgrade", account_management_path, :class => 'navbar-link' %> to create private Wikis! 
-             <% end %>
-        </div>
-        
-        <div class="col-xs-6"><span class="pull-right">
-         <% if user_signed_in? %>
-           <span class="glyphicon glyphicon-user">&nbsp;</span> Hello, <strong><%= current_user.email.split("@")[0] %></strong> &nbsp;|&nbsp;
-           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-         <% else %>
-           <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+<html>
+   <head>
+      <title>Wikit</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= stylesheet_link_tag params[:wikis] %>
+      <%= stylesheet_link_tag params[:collaborators] %>
+      <%= csrf_meta_tags %>
+   </head>
+   <body>
+      <div class="container home-font">
+         <div class="row header-footer">
+            <div class="col-xs-6">
+               <%= link_to "Wikit", welcome_index_path %>
+               <% if user_signed_in? && current_user.role == 'standard' %> &nbsp;|&nbsp;
+                   <%= link_to "Upgrade", account_management_path, :class => 'navbar-link' %> to create private Wikis! 
+               <% end %>
+            </div>
+            <div class="col-xs-6"><span class="pull-right">
+               <% if user_signed_in? %>
+                   <span class="glyphicon glyphicon-user">&nbsp;</span> Hello, <strong><%= current_user.email.split("@")[0] %></strong> &nbsp;|&nbsp;
+                   <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+               <% else %>
+                   <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+               <% end %>
+               </span>
+            </div>
+         </div>
+         <% if flash[:notice] %>
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <%= flash[:notice] %>
+             </div>
+         <% elsif flash[:alert] %>
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <%= flash[:alert] %>
+            </div>
          <% end %>
-         </span>
-        </div>
-       
-    </div>
-    
-
-    
-
-     <% if flash[:notice] %>
-       <div class="alert alert-success">
-         <button type="button" class="close" data-dismiss="alert">&times;</button>
-         <%= flash[:notice] %>
-       </div>
-     <% elsif flash[:alert] %>
-       <div class="alert alert-warning">
-         <button type="button" class="close" data-dismiss="alert">&times;</button>
-         <%= flash[:alert] %>
-       </div>
-     <% end %>
-
-
-<div class="row"> 
-    <div class="col-md-2">
-
-        <div class="list-group" style="width: 150px;">
-        <span href="#" class="list-group-item active">
-            Explore Wikit
-            <span class="pull-right" id="slide-submenu">
-                <i class="fa fa-times"></i>
-            </span>
-        </span>
-        
-        <%= link_to "Home &nbsp <span class='glyphicon glyphicon-home' aria-hidden='true'></span>".html_safe, welcome_index_path, :class => "list-group-item" %>
-        
-        <%= link_to "Browse all Wikis", wikis_path, :class => "list-group-item" %>
-          
-        <%= link_to "Create a Wiki!", new_wiki_path, :class => "list-group-item" %>
-          
-        <% if user_signed_in? %> 
-        <%= link_to "My Wikis", users_show_path, :class => "list-group-item" %> 
-        
-        <%= link_to "My Account", account_management_path, :class => "list-group-item" %> 
-        <% end %>
-        
-
-    </div> 
-    
-    </div>
-    
-    <div class="col-md-10">
- 
-            <%= yield %>
-
-    </div>
-
-</div>
-
-   <div class="row header-footer">
-     <div style="text-align: center;">
-       Copyright &nbsp;<span class="glyphicon glyphicon-copyright-mark"></span>&nbsp;Vidya Neni 2017
-     </div>
-   </div>
-  
-  </div>
-  
-  
-  </body>
-  </html>
+         <div class="row">
+            <div class="col-md-2">
+               <div class="list-group" style="width: 150px;">
+                  <span href="#" class="list-group-item active">
+                  Explore Wikit
+                  <span class="pull-right" id="slide-submenu">
+                  <i class="fa fa-times"></i>
+                  </span>
+                  </span>
+                  <%= link_to "Home &nbsp <span class='glyphicon glyphicon-home' aria-hidden='true'></span>".html_safe, welcome_index_path, :class => "list-group-item" %>
+                  <%= link_to "Browse all Wikis", wikis_path, :class => "list-group-item" %>
+                  <%= link_to "Create a Wiki!", new_wiki_path, :class => "list-group-item" %>
+                  <% if user_signed_in? %> 
+                      <%= link_to "My Wikis", users_show_path, :class => "list-group-item" %> 
+                      <%= link_to "My Account", account_management_path, :class => "list-group-item" %> 
+                  <% end %>
+               </div>
+            </div>
+            
+            <div class="col-md-10">
+               <%= yield %>
+            </div>
+         </div>
+         <div class="row header-footer">
+            <div style="text-align: center;">
+               Copyright &nbsp;<span class="glyphicon glyphicon-copyright-mark"></span>&nbsp;Vidya Neni 2017
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

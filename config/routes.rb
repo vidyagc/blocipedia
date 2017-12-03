@@ -1,30 +1,29 @@
 Rails.application.routes.draw do
 
-resources :wikis
-
-resources :charges, only: [:new, :create]
-
-as :charge do  
-  get 'account_management' => 'charges#account'
-  delete 'downgrade' => 'charges#destroy', as: :destroy_charge
-end 
-
-get 'users/show' #'/users/:id', to: 'users#show'
-
-devise_for :user, controllers: { registrations: "registrations" }
-
-get 'welcome/index'
-
-root 'welcome#index'
-
-resources :wikis, only: [] do
+  resources :wikis
+  
+  resources :charges, only: [:new, :create]
+  
+  as :charge do  
+    get 'account_management' => 'charges#account'
+    delete 'downgrade' => 'charges#destroy', as: :destroy_charge
+  end 
+  
+  get 'users/show' #'/users/:id', to: 'users#show'
+  
+  devise_for :user, controllers: { registrations: "registrations" }
+  
+  get 'welcome/index'
+  
+  root 'welcome#index'
+  
+  resources :wikis, only: [] do
     member do
       put :delete_image
     end
-
-     resources :collaborators, only: [:create, :destroy]
-   end
-
+  
+    resources :collaborators, only: [:create, :destroy]
+  end
 
 end 
 

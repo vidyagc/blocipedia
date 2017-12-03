@@ -19,17 +19,13 @@ class WikisController < ApplicationController
   end
   
   def index
-   @wikis = policy_scope(Wiki)
+    @wikis = policy_scope(Wiki)
   end
 
   def show
-    
-      @wiki = Wiki.find(params[:id]) 
-         #all_wikis = scope.all
-
+    @wiki = Wiki.find(params[:id]) 
     rescue ActiveRecord::RecordNotFound
-  redirect_to root_url, :flash => { :alert => "Record not found." }
-
+    redirect_to root_url, :flash => { :alert => "Record not found." }
   end
 
   def new
@@ -47,10 +43,10 @@ class WikisController < ApplicationController
     if @wiki.save
       flash[:notice] = "Wiki was saved."
       redirect_to @wiki
-     else
-       flash.now[:alert] = "There was an error saving the wiki. Please try again."
-       render :new
-     end
+    else
+      flash.now[:alert] = "There was an error saving the wiki. Please try again."
+      render :new
+    end
   end
 
   def edit
@@ -65,11 +61,11 @@ class WikisController < ApplicationController
     @wiki.remove_image = params[:wiki][:remove_image]
     
     if @wiki.save
-     flash[:notice] = "Wiki was updated."
-       redirect_to @wiki
+      flash[:notice] = "Wiki was updated."
+      redirect_to @wiki
     else
-     flash.now[:alert] = "There was an error saving the wiki. Please try again."
-       render :edit
+      flash.now[:alert] = "There was an error saving the wiki. Please try again."
+      render :edit
     end
   end
 
@@ -78,7 +74,7 @@ class WikisController < ApplicationController
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
       redirect_to users_show_path
-     else
+    else
       flash.now[:alert] = "There was an error deleting the wiki."
       render :show
     end

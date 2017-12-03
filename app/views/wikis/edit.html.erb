@@ -1,59 +1,51 @@
 
 
- <h1>Edit Wiki</h1>
- 
- <div class="row">
+<h1>Edit Wiki</h1>
+<div class="row">
    <div class="col-md-4">
-     <p>Guidelines for wikis</p>
-     <ul>
-       <li>Curse words not allowed and will be censored.</li>
-       <li>Language indicating direct threats will be censored and reported to authorities.</li>
-     </ul>
-     
-     <div style="padding-top:15px">
-    <span class="glyphicon glyphicon-asterisk ast-md"></span><h4 style="margin-top:20px; display: inline; padding-left: 5px; padding-right: 5px">
-     <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a>
-     </h4><span class="glyphicon glyphicon-asterisk"></span>
-     </div>
-     
+      <p>Guidelines for wikis</p>
+      <ul>
+         <li>Curse words not allowed and will be censored.</li>
+         <li>Language indicating direct threats will be censored and reported to authorities.</li>
+      </ul>
+      <div style="padding-top:15px">
+         <span class="glyphicon glyphicon-asterisk ast-md"></span>
+         <h4 style="margin-top:20px; display: inline; padding-left: 5px; padding-right: 5px">
+            <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a>
+         </h4>
+         <span class="glyphicon glyphicon-asterisk"></span>
+      </div>
    </div>
    <div class="col-md-8">
-     <%= form_for @wiki do |f| %>
+      <%= form_for @wiki do |f| %>
        <div class="form-group">
-         <%= f.label :title %>
-         <%= f.text_field :title, class: 'form-control', placeholder: "Enter wiki title" %>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control', placeholder: "Enter wiki title" %>
        </div>
        <div class="form-group">
-         <%= f.label :body %>
-         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
+          <%= f.label :body %>
+          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
        </div>
-       
        <div class="form-group">
-         <% if @wiki.image.exists? %>
-          <label for="image">Current Image</label><br>
-          <%= image_tag @wiki.image.url(:thumb) %>
-          <br><br>
-         <% end %>
-         <label for="image"><% if @wiki.image.exists? %>Replace <% end %>Image</label><br>
-         <%= f.file_field :image %> 
+          <% if @wiki.image.exists? %>
+           <label for="image">Current Image</label><br>
+           <%= image_tag @wiki.image.url(:thumb) %>
+           <br><br>
+          <% end %>
+          <label for="image"><% if @wiki.image.exists? %>Replace <% end %>Image</label><br>
+          <%= f.file_field :image %> 
        </div>
-     
-     OR
-     
+       OR
        <div class="form-group">  
-         <% if @wiki.image.exists? %>
-         <br>
-         <%= f.check_box :remove_image %>
-         <label for="remove_image", style="color: red;">Remove Image</label>
-         <% end %>
+          <% if @wiki.image.exists? %>
+           <br>
+           <%= f.check_box :remove_image %>
+           <label for="remove_image", style="color: red;">Remove Image</label>
+          <% end %>
        </div>
-       
        <div class="form-group">
-         <%= f.submit "Save", class: 'btn btn-success' %>
+          <%= f.submit "Save", class: 'btn btn-success' %>
        </div>
-     <% end %>
+      <% end %>
    </div>
-   
- </div>
- 
-
+</div>

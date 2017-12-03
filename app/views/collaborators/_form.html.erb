@@ -1,19 +1,15 @@
-
 <h4>Add a Collaborator</h4>
- <%= form_for [wiki, collaborator] do |f| %>
-   <div class="form-group">
+<%= form_for [wiki, collaborator] do |f| %>
+ <div class="form-group">
     <div>
-      
-        <div class="form-group">
-         <%= f.label :emailid, class: 'sr-only' %>
-         <%= f.text_field :emailid, class: 'form-control', placeholder: "Enter email address", :required => 'required' %>
-        </div>
-        <div class="form-group">
-         <%= f.submit "Submit Collaborator", class: 'btn btn-info pull-left' %>
-        </div>
+       <div class="form-group">
+          <%= f.label :emailid, class: 'sr-only' %>
+          <%= f.text_field :emailid, class: 'form-control', placeholder: "Enter email address", :required => 'required' %>
+       </div>
+       <div class="form-group">
+          <%= f.submit "Submit Collaborator", class: 'btn btn-info pull-left' %>
+       </div>
     </div>
-    </div>
- <% end %>
+ </div>
+<% end %>
  
- <!-- if collaborator exists (can check this in collaborator controller), then access that collaborator by email id and add it to a Wiki 
- (like how a comment is made? or post for topic?) already going to collaborators controler. Check there if it exists and use that to add Wiki id to the collab -->

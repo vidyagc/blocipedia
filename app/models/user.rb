@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
 
   after_initialize :init
 
-    def init
-      self.role  ||= 'standard' 
-    end
+  def init
+    self.role  ||= 'standard' 
+  end
          
   def update_role(new_role, customer_id)
     update_attribute(:role, new_role)
@@ -23,5 +23,6 @@ class User < ActiveRecord::Base
         wiki.collaborators.destroy_all
       end 
     end 
-  end 
+  end
+  
 end

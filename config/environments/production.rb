@@ -79,8 +79,8 @@ config.serve_static_assets = true
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-config.assets.precompile << "*.css"
+  config.assets.precompile << "*.css"
 
-    config.action_mailer.default_url_options = { host: 'https://vn-wikit.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://vn-wikit.herokuapp.com' }
 
 end

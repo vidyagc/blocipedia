@@ -1,33 +1,31 @@
-
-
 <div class="row">
- <div class="col-md-8">
-  <h1 class="wrap"><%= markdown(@wiki.title) %></h1>
-  <p><div class="wrap"><%= markdown(@wiki.body) %></div></p>
-  <% if @wiki.image.exists? %>
-   <%= image_tag @wiki.image.url(:medium), :class=> "img-circular" %>
-  <% end %>
-  
- </div>
- 
- <% if user_signed_in? %>
-  <div class="col-md-4">
-   <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
-   <%= link_to "Delete Wiki", [@wiki], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
-   <div>&nbsp;</div>
-
-      <% if user_is_authorized_for_collaborator?(@wiki) %>
-       <%= render 'collaborators/form', collaborator: Collaborator.new, wiki: @wiki %>
-   
-   <% unless @wiki.collaborators.empty?  %>
-     <div style="margin-top: 75px !important;">
-          <table class="collab-table bordered"> 
-          <tr><td colspan="2" align="middle"><span style="font-variant: small-caps"><b>Collaborators<b></span></td></tr>
-       <%= render @wiki.collaborators %>
-           </table>
-     </div>
-    <% end %>
-   <% end %>
-  </div>
- <% end %> 
+   <div class="col-md-8">
+      <h1 class="wrap"><%= markdown(@wiki.title) %></h1>
+      <p>
+      <div class="wrap"><%= markdown(@wiki.body) %></div>
+      </p>
+      <% if @wiki.image.exists? %>
+         <%= image_tag @wiki.image.url(:medium), :class=> "img-circular" %>
+      <% end %>
+   </div>
+   <% if user_signed_in? %>
+      <div class="col-md-4">
+         <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
+         <%= link_to "Delete Wiki", [@wiki], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
+         <div>&nbsp;</div>
+         <% if user_is_authorized_for_collaborator?(@wiki) %>
+            <%= render 'collaborators/form', collaborator: Collaborator.new, wiki: @wiki %>
+            <% unless @wiki.collaborators.empty?  %>
+               <div style="margin-top: 75px !important;">
+                  <table class="collab-table bordered">
+                     <tr>
+                        <td colspan="2" align="middle"><span style="font-variant: small-caps"><b>Collaborators<b></span></td>
+                     </tr>
+                     <%= render @wiki.collaborators %>
+                  </table>
+               </div>
+            <% end %>
+         <% end %>
+      </div>
+   <% end %> 
 </div>
