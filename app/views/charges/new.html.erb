@@ -1,0 +1,10 @@
+<%= form_tag charges_path do %>
+ <h4><span><font color="blue">PREMIUM</font></span> accounts are a $15 annual subscription. <br /> Make a payment below to start creating Private Wikis!</h4>
+ <br />
+ <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-allow-remember-me="false" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
+<% end %>
+
+<div class="header" style="margin-top:25px"><font color="limegreen">Account Benefits</font></div>
+<p><span class="glyphicon glyphicon-ok" style="color:limegreen"></span>Create new private wikis</p>
+<p><span class="glyphicon glyphicon-ok" style="color:limegreen"></span>Add collaborators to private wikis</p>
+<p><span class="glyphicon glyphicon-ok" style="color:limegreen"></span>Downgrade your plan at any time</p>

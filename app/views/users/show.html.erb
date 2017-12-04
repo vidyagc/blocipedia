@@ -1,0 +1,15 @@
+<h2>My Wikis</h2>
+<% @user.wikis.each do |wiki| %>
+ <div class="media">
+    <div class="media-body">
+       <h4 class="media-heading">
+          <%= link_to markdown(wiki.title), wiki, class: 'wrap' %>
+       </h4>
+    </div>
+ </div>
+<% end %>
+<div style="margin-top: 30px; margin-bottom: 45px">
+  <%= link_to "Create a Wiki!", new_wiki_path, class: 'home-font btn btn-default' %>
+</div>
+<%= render "collaborators/show", collaborators: Collaborator.all %>
+ 

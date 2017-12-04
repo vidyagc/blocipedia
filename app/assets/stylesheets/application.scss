@@ -1,0 +1,106 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.header-footer {
+	background-color: #f2edf7;
+	position: relative;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	border-radius: 3px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #e6dcef;
+}
+
+span.glyphicon {
+	vertical-align: middle;
+	margin-top: -5px;
+}
+
+#pedia-title {
+	font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	font-size: 19px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	padding-bottom: 15px;
+}
+
+.pedia-heading {
+	font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	font-size: 23px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 400;
+	padding-bottom: 15px;
+}
+
+#signup-box {
+	width: 350px;
+	border: 1px solid gray;
+	margin: 0;
+}
+
+.home-font {
+	font-family: Book Antiqua, Palatino, Palatino Linotype, Palatino LT STD, Georgia, serif;
+}
+
+.row {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.plan {
+	width: 85px;
+}
+
+.space-span {
+	margin-top: 15px;
+	display: block;
+}
+
+.ast-md {
+	color: orange;
+	margin-right: 0px !important;
+}
+
+.space-span2 {
+	margin-top: px;
+	margin-bottom: px;
+	display: block;
+}
+
+#signup-box2 {
+	width: 400px;
+	border: 1px solid gray;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.wrap {
+	word-break: break-all;
+	word-wrap: break-word;
+	/* IE */
+	overflow-wrap: break-word;
+}
+
+.home-su {
+	background-color: #ffe5e5;
+}

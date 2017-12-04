@@ -1,0 +1,6 @@
+<% if !collaborators.where(emailid: current_user.email).first.nil? %>
+ <h2>Collaborator Wikis</h2>
+ <% collaborators.where(emailid: current_user.email).each do |collaborator| %>
+  <%= link_to markdown(collaborator.wiki.title), wiki_path(collaborator.wiki.id) %>
+ <% end %>
+<% end %>
