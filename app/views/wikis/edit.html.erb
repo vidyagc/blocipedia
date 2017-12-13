@@ -44,10 +44,10 @@
                 <% end %>
             </div>
             <div class="form-group">
-                <%= f.submit "Save", class: 'btn btn-success' %>
+                <%= f.submit "Save", class: 'btn btn-success' %> <%= link_to 'Cancel', {action: :show, id: @wiki.id}, method: :get, :style=>'color: red; padding-left: 25px' %> 
             </div>
         <% end %>
         <p>&nbsp;</p>
-        <%= link_to 'Cancel', {action: :show, id: @wiki.id}, method: :get, class: 'btn btn-danger' %>
+        
     </div>
 </div>
