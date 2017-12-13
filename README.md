@@ -2,22 +2,25 @@
  
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Ruby version 
+2.3.0p0
 
-* Ruby version
+#### Rails version
+4.2.5
 
-* System dependencies
 
-* Configuration
+## Setup 
 
-* Database creation
+#### Clone the repository  
 
-* Database initialization
+#### Database creation
+'sqlite3' gem for the Development database
+'bundle install --without production'
+'rake db:create' to create the database 
 
-* How to run the test suite
+#### Database initialization
+'rake db:migrate' to run migrations and seed
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+#### Deployment instructions
+'rails s'
 
