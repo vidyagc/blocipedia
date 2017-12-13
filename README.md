@@ -1,6 +1,4 @@
 ## Wikit: A wiki app that could be customized for any number of uses, including a workplace wiki
- 
-== README
 
 #### Ruby version 
 2.3.0p0

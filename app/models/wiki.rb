@@ -11,6 +11,9 @@ class Wiki < ActiveRecord::Base
   has_attached_file :image, styles: { medium: "300x300>", thumb: "150x150#" } #, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   
+  validates :title, length: { minimum: 5, :message => "needs to be at least 5 characters" }
+  validates :body, length: { minimum: 20, :message => "needs to be at least 20 characters" }
+  
   def init
     self.private  ||= false  #will set the default value only if it's nil
   end
