@@ -1,23 +1,24 @@
 // Place all the styles related to the charges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.glyphicon.glyphicon-ok {
-	color: blue;
+.fa.fa-check {
+	color: #23cb15;
 	margin-right: 15px;
 }
 
-.glyphicon.glyphicon-asterisk {
+.fa.fa-asterisk {
 	color: orange;
 	margin-right: 15px;
+	margin-top: 1px;
 }
 
-.glyphicon.glyphicon-warning-sign {
+.fa.fa-exclamation-triangle {
 	color: crimson;
 	margin-right: 15px;
 }
 
 .header {
-	font-size: 25;
+	font-size: 17;
 	font-variant: small-caps;
 	padding-bottom: 10px;
 }
@@ -28,6 +29,7 @@
 	padding: 15px;
 	text-align: left;
 	border-radius: 8px;
+	padding-top:55px;
 }
 
 .inner {

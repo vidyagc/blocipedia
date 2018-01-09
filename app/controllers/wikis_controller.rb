@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   
-  before_action :authenticate_user!, only: [:new, :create] 
+  before_action :authenticate_user!, except: [:index, :show] 
   before_action :check_permission, except: [:index, :new, :create]
   
   def index
@@ -49,7 +49,7 @@ class WikisController < ApplicationController
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki
     else
-      flash.now[:alert] = "There was an error saving the wiki. Please try again."
+      # flash.now[:alert] = "There was an error saving the wiki. Please try again."
       render :edit
     end
   end

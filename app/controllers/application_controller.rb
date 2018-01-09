@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+helper_method :resource_name, :resource, :devise_mapping, :resource_class
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -14,6 +14,35 @@ class ApplicationController < ActionController::Base
     end 
   end
   
+# start resource mapping
+# https://pupeno.com/2010/08/29/show-a-devise-log-in-form-in-another-page/
+
+  def new
+  end
+ 
+  private
+ 
+  def resource_name
+    :user
+  end
+  helper_method :resource_name
+ 
+  def resource
+    @resource ||= User.new
+  end
+  helper_method :resource
+ 
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+  helper_method :devise_mapping
+ 
+  def resource_class
+    User
+  end
+  helper_method :resource_class
+  
+# end resource mapping
   
   private
   
@@ -22,3 +51,5 @@ class ApplicationController < ActionController::Base
   end
   
 end
+
+

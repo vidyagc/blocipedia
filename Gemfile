@@ -38,3 +38,5 @@
  gem 'stripe'
  gem 'redcarpet'
  gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+ 
+ gem "font-awesome-rails"

@@ -1,19 +1,55 @@
-<div  style="margin: 15px auto; text-align: center; padding-right: 20.5%" class="bgimg">
+<a name="top"></a>
    <% if user_signed_in? %>
-       <span class="pedia-heading">Wikit: Social, Markdown Wikis</span>
-       <div id="signup-box2" style="margin:15px auto; padding: 15px">
-          <span style="font-size: 19px;"><font color="blue">Create and share Markdown Wikis</font></span>
-          <span class="space-span" style="font-size: 1.2em">Peruse content, edit it, or create your own! Whether you are learning or sharing, if you who, what, when, where, why, Wikit (wikit it)!</span> 
-       </div>
+ placeholder
    <% else %> 
-       <div class="row">
-          <div class="col-md-12">
-             <span class="pedia-heading">Wikit: Social, Markdown Wikis</span>
-             <div id="signup-box" style="margin:15px auto; padding: 15px">
-                <font color="blue"><span id="pedia-title">If you want to share it, Wikit (wiki it)!</span></font><br><span style="font-size: 1.10em">Sign up now to begin creating public wikis, and view plan options to <b>create private wikis!</b></span></span>
-                <span class="space-span"><%= link_to "Sign Up", new_user_registration_path, class: 'home-font btn btn-default btn-lg home-su' %></span>
-             </div>
-          </div>
-       </div>
+    <div class="row">
+        <div class="col-md-8 col-sm-6">
+            <div class="col-md-6">   
+                <div class="panel panel-primary plan-panel" style="min-height:198px">
+                    <div class="panel-heading">Standard Plan</div>
+                    <div class="panel-body">
+                        <p><i class="fa fa-check" aria-hidden="true" style="color:blue"></i><font size="3em">Create public Wikis</font></p>
+                        <p><i class="fa fa-check" aria-hidden="true" style="color:blue"></i>Free plan with account sign up</p>
+                        <p><i class="fa fa-check" aria-hidden="true" style="color:blue"></i>Upgrade at any time!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">  
+                <div class="panel panel-primary plan-panel">
+                    <div class="panel-heading">Premium Plan</div>
+                    <div class="panel-body">
+                        <p><i class="fa fa-check" aria-hidden="true"></i><font size="3em"><b>Create private wikis</b></font></p>
+                        <p><i class="fa fa-check" aria-hidden="true"></i>Add collaborators to private wikis</p>
+                        <p><i class="fa fa-check" aria-hidden="true"></i>Downgrade your plan at any time</p>
+                        <p><i class="fa fa-check" aria-hidden="true"></i>$15 / year subscription</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="panel panel-default plan-panel info-panel">
+                        <div class="panel-heading">About Wikit: Social, Markdown Wikis</span></div>
+                        <div class="panel-body">
+                            <span style="font-size: 1.1em">
+                            <p>Peruse content, edit it, or create your own! Whether you are learning or sharing, if you who, what, when, where, why, then Wikit (wiki it)! 
+                            </p>
+                            <p class="text-left">
+                                <ul align="left">
+                                    <li>
+                                        New to Markdown? Check out the <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a> to help you get the most out of creating or editing wikis. 
+                                    </li>
+                                </ul>
+                            </p>
+                            </span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="center-div">  
+                <%= render "devise/sessions/form" %>
+            </div>
+        </div>
    <% end %>
-</div>
+    </div>
