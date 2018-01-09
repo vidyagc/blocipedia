@@ -7,7 +7,6 @@
     <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password, autocomplete: "off", placeholder: "password", class: "auth-form" %></p>
     <p><%= f.check_box :remember_me %>&nbsp;<%= f.label :remember_me %></p>
     <p><%= f.submit 'Sign in' %></p>
-    <p><%= link_to "Forgot your password?", new_password_path(:user) %></p>
 <% end %>
 </div>
 
@@ -22,6 +21,6 @@
      <em>(<%= @minimum_password_length %> characters minimum)</em>
      <% end %>
     <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password", class: "auth-form" %></p>
-    <p><%= f.submit 'Sign up' %></p>
+    <p style="margin-top:15px"><%= f.submit 'Sign up' %></p>
 <% end %>
 </div>

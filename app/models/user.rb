@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   has_many :wikis
   
   devise :database_authenticatable, :registerable,  
-         :rememberable, :trackable, :validatable , :confirmable , :recoverable
+         :rememberable, :trackable, :validatable 
+        # , :confirmable , :recoverable
         
 
   after_initialize :init
