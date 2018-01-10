@@ -26,10 +26,16 @@
 .acct-opts {
 	background-color: #ffffe5;
 	width: 275px;
-	padding: 15px;
+	padding-bottom: 25px;
 	text-align: left;
 	border-radius: 8px;
 	padding-top:55px;
+}
+
+@media (max-width: 767px) {
+	.acct-opts {
+		padding-top:25px;	
+	}
 }
 
 .inner {
