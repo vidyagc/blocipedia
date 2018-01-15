@@ -177,7 +177,7 @@ div .panel-heading {
     padding-bottom:2px;
     border: 1px solid #80668a;
     border-radius: 5px;
-    margin-top: -2px;
+    margin-top:5px;
   }
   .brand {
     text-align: left !important;
@@ -189,6 +189,7 @@ div .panel-heading {
     padding-top:1px;
     margin-bottom: 15px;
     background-color: #ece5ee;
+    border:1px solid #cfbfd6;
   }
   
   .navbar-top {
@@ -197,6 +198,7 @@ div .panel-heading {
   .navbar-bottom {
     margin-right:15px;
     margin-left:15px;
+    border: none;
   }
 }
 @media (min-width: 767px) {

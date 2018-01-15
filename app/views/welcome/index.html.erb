@@ -1,5 +1,5 @@
-<a name="top"></a>
-   <% if !user_signed_in? %> 
+
+<% if !user_signed_in? %> 
     <div class="row">
         <div class="col-md-8 col-sm-6">
             <div class="col-md-6">   
@@ -45,9 +45,10 @@
             </div>
         </div>
         <div class="col-md-4 col-sm-6">
+            <a name="signin"></a>
             <div class="center-div">  
                 <%= render "devise/sessions/form" %>
             </div>
         </div>
-   <% end %>
-    </div>
+    <% end %>
+</div>
