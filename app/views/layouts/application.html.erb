@@ -20,10 +20,10 @@
       
    </head>
    <body>
-      <div class="container home-font">
 
+      <div class="container home-font">
          <div class="row">
-            <nav class="navbar navbar-light bg-faded" style="border: 1px solid #cfbfd6; background-color: #ece5ee; max-height:20px !imporant; padding-left:20px; padding-right:20px; padding-bottom: 0; padding-top: 10;">
+            <nav class="navbar navbar-light bg-faded navbar-top" style="border: 1px solid #cfbfd6; background-color: #ece5ee; max-height:20px !imporant; padding-left:20px; padding-right:20px; padding-bottom: 0; padding-top: 10;">
                <table width="100%">
                   <tr>
                      <td>
@@ -88,7 +88,7 @@
                   </div>
                </div>
             </div>
-
+            <div class="wrapper">
             <div class="col-md-10">
                <% if flash[:notice] %>
                   <div class="alert alert-success wrap">
@@ -106,8 +106,15 @@
                      <%= flash[:danger].html_safe %>
                   </div>           
                <% end %>
+               
                <%= yield %>
+               </div>
             </div>
          </div>
+         <!--match top nav style in small views-->
+         <div class ="row">
+            <nav class="navbar navbar-light bg-faded navbar-bottom" style="border: 1px solid #cfbfd6; background-color: #ece5ee; max-height:20px !imporant; text-align:center; padding-bottom: 0; padding-top: 15px;">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2017 Vidya Neni</nav>
+         </div>
+      </div>
    </body>
 </html>

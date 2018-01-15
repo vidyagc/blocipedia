@@ -18,6 +18,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.wrapper {
+    min-height: 75vh;
+    margin: 0 auto; /* the bottom margin is the negative value of the footer's height */
+}
+
 .ast-md {
   margin-right:0px !important;
   margin-left: 0px !important;
@@ -166,11 +171,13 @@ div .panel-heading {
     right: 10px;
     top: 10px;
     z-index: 10 !important;
-    padding: 3px;
-    background-color: #ece5ee;
-    color: #000;
     width: 40px;
     text-align: center;
+    padding-top:2px;
+    padding-bottom:2px;
+    border: 1px solid #80668a;
+    border-radius: 5px;
+    margin-top: -2px;
   }
   .brand {
     text-align: left !important;
@@ -184,8 +191,12 @@ div .panel-heading {
     background-color: #ece5ee;
   }
   
-  .navbar {
+  .navbar-top {
     display: none;
+  }
+  .navbar-bottom {
+    margin-right:15px;
+    margin-left:15px;
   }
 }
 @media (min-width: 767px) {

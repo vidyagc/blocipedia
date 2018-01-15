@@ -2,7 +2,7 @@
 <h3 style="margin-top:0">Sign In</h3>
 <%= form_for(:user, :url => session_path(:user), :html => { :class =>
 'auth-form-for'}) do |f| %>
-    <p><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.text_field :email, autofocus: true, placeholder: "email", class: "auth-form" %></p>
+    <p><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.text_field :email, placeholder: "email", class: "auth-form" %></p>
     <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password, autocomplete: "off", placeholder: "password", class: "auth-form" %></p>
     <p><%= f.check_box :remember_me %>&nbsp;<%= f.label :remember_me %></p>
     <p><%= f.submit 'Sign in' %></p>
@@ -15,7 +15,7 @@
 <h3>New User</h3>
 <%= form_for(:user, :url => registration_path(:user), :html => { :class =>
 'auth-form-for'}) do |f| %>
-    <p><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.text_field :email, autofocus: true, placeholder: "email", class: "auth-form" %></p>
+    <p><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.text_field :email, placeholder: "email", class: "auth-form" %></p>
     <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password, autocomplete: "off", placeholder: "password", class: "auth-form" %></p>
      <% if @minimum_password_length %>
      <em>(<%= @minimum_password_length %> characters minimum)</em>
