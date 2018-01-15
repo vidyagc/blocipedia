@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   get 'users/show' #'/users/:id', to: 'users#show'
   
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", passwords: "passwords", confirmations: "confirmations" }
   
   get 'welcome/index'
   
