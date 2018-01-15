@@ -16,10 +16,8 @@ def create
         end
     else
         clean_up_passwords resource
-        resource.errors.full_messages.each {|x| flash[x] = x} 
-        i=0
-        flash[:danger] = (flash[:danger].to_a.concat resource.errors.full_messages).join(". ")
-        redirect_to root_path 
+        flash[:danger] = resource.errors.full_messages.map { |error| "<li>#{error}" }.join("</li>")
+        redirect_to root_path
     end
 end
 
