@@ -1,16 +1,17 @@
 
     <div class="panel panel-primary plan-panel" style="max-width: 275px; float: left;">
       <div class="panel-heading">Premium Plan</div>
+      <div class="panel-heading" style="background-color:#fde794; color:#000; align-text:left; border-bottom:0; border-top:0;">$15 / year subscription</div>
       <div class="panel-body">
         <div class="inner" style="margin-top: 10px; margin-bottom:10px;">
             <%= form_tag charges_path do %>
                 <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-allow-remember-me="false" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
             <% end %>
         </div>
-        <p><i class="fa fa-check" aria-hidden="true"></i><font size="3em"><b>Create private wikis</b></font></p>
+        <!--<div style="background-color:#FBD749"><p><i class="fa fa-check" aria-hidden="true"></i>$15 / year subscription</p></div>-->
+        <p><i class="fa fa-check" aria-hidden="true"></i><font size="3.5em"><b>Create private wikis</b></font></p>
         <p><i class="fa fa-check" aria-hidden="true"></i>Add collaborators to private wikis</p>
         <p><i class="fa fa-check" aria-hidden="true"></i>Downgrade your plan at any time</p>
-        <p><i class="fa fa-check" aria-hidden="true"></i>$15 / year subscription</p>
         <p><table>
              <tr>
                <td valign="top">

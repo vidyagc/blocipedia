@@ -36,7 +36,7 @@
                       <%= f.check_box :private %> <br />
                    </div>
               <% end %>
-              <%= f.submit "Save", class: 'btn btn-success' %>
+              <%= f.submit "Save", class: 'btn btn-success' %> <%= link_to 'Cancel', wikis_path, :style=>'color: red; padding-left: 25px' %> 
            </div>
       <% end %>
    </div>
