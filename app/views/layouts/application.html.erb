@@ -48,8 +48,9 @@
                <div class="nav-side-menu">
                   <div class="brand"><%= link_to "<u><h3 style='font-weight: bold; color:#80668a;'>Wikit <i class='fa fa-pencil' aria-hidden='true'></i></h3></u>".html_safe, welcome_index_path, class: "nav-logo" %></div>
                   <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content" ></i>
+                  
                   <div class="menu-list">
-                     <ul id="menu-content" class="menu-content collapse out list-group">
+                     <ul id="menu-content" class="menu-content collapse list-group">
                         <% if !user_signed_in? %>
                         <li class="list-group-item mid-list-item">
                            <%= link_to "<i class='fa fa-home' aria-hidden='true'></i> Home / Sign in".html_safe, welcome_index_path %>
@@ -115,6 +116,7 @@
          <div class ="row">
             <nav class="navbar navbar-light bg-faded navbar-bottom" style="border: 1px solid #cfbfd6; background-color: #ece5ee; max-height:20px !imporant; text-align:center; padding-bottom: 0; padding-top: 15px;">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2017 Vidya Neni</nav>
          </div>
+         
       </div>
    </body>
 </html>

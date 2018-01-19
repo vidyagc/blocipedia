@@ -91,16 +91,16 @@
 }
 
 div .panel-heading {
-    display: block;
-    font-size: 1.17em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-    text-align: center;
+  display: block;
+  font-size: 1.17em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  text-align: center;
 }
 
 .auth-form-for .fa {
-	padding-right: 15px !important;
+  padding-right: 15px !important;
 }
 
 .auth-form-for .fa-lock {
@@ -125,14 +125,15 @@ div .panel-heading {
   overflow: auto;
   top: 0px;
 }
+
 .nav-side-menu .brand {
-  display: block;
-  text-align: center;
   display: none;
 }
+
 .nav-side-menu .toggle-btn {
   display: none;
 }
+
 .nav-side-menu ul,
 .nav-side-menu li {
   list-style: none;
@@ -152,38 +153,32 @@ div .panel-heading {
 
 .nav-side-menu li:hover {
   background-color: #f6f6f6;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease;
 }
+
 @media (max-width: 767px) {
   .nav-side-menu {
     position: relative;
     width: 100%;
     margin-bottom: 10px;
   }
-.nav-side-menu .toggle-btn {
+  .nav-side-menu .toggle-btn {
     display: block;
     cursor: pointer;
     position: absolute;
     right: 10px;
     top: 10px;
-    z-index: 10 !important;
     width: 40px;
     text-align: center;
-    padding-top:2px;
+    padding-top:3px;
     padding-bottom:2px;
     border: 1px solid #80668a;
     border-radius: 5px;
-    margin-top:5px;
+    margin-top:4px;
   }
   .brand {
     text-align: left !important;
     font-size: 22px;
     padding-left: 20px;
-    line-height: 50px !important;
     display: block !important;
     padding-bottom:5px;
     padding-top:1px;
@@ -198,10 +193,10 @@ div .panel-heading {
   .navbar-bottom {
     margin-right:15px;
     margin-left:15px;
-    border: none;
   }
 }
-@media (min-width: 767px) {
+
+@media (min-width: 768px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
   }
