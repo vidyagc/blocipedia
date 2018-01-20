@@ -20,7 +20,7 @@
 
 .wrapper {
     min-height: 75vh;
-    margin: 0 auto; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto; 
 }
 
 .ast-md {
@@ -85,9 +85,9 @@
 }
 
 .auth-form {
-  	border-top: 0 !important;
-  	border-right: 0 !important; 
-  	border-left: 0 !important;
+  border-top: 0 !important;
+  border-right: 0 !important; 
+  border-left: 0 !important;
 }
 
 div .panel-heading {
@@ -197,17 +197,14 @@ div .panel-heading {
 }
 
 @media (min-width: 768px) {
-  .nav-side-menu .menu-list .menu-content {
-    display: block;
-  }
-}
-
-@media (min-width: 768px) {
   .nav-side-menu {
     min-height: 275;
   }
   .nav-side-menu li {
     max-width: 175px;
+  }
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
   }
 }
 
