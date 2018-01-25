@@ -156,7 +156,7 @@ div .panel-heading {
   background-color: #f6f6f6;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .nav-side-menu {
     position: relative;
     width: 100%;
@@ -199,9 +199,9 @@ div .panel-heading {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .nav-side-menu {
-    height: 275px;
+    min-height: 275px;
   }
   .nav-side-menu li {
     max-width: 175px;
