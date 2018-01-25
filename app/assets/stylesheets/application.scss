@@ -186,13 +186,15 @@ div .panel-heading {
     background-color: #ece5ee;
     border:1px solid #cfbfd6;
   }
-  
   .navbar-top {
     display: none;
   }
   .navbar-bottom {
     margin-right:15px;
     margin-left:15px;
+  }
+  .signin-bot {
+    display:none;
   }
 }
 
@@ -205,6 +207,9 @@ div .panel-heading {
   }
   .nav-side-menu .menu-list .menu-content {
     display: block;
+  }
+  .signin-top {
+    display:none;
   }
 }
 
