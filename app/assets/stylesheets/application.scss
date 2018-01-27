@@ -156,6 +156,28 @@ div .panel-heading {
   background-color: #f6f6f6;
 }
 
+#tab-btns td {
+  width: 50%;
+  .fa {
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  #tab-btns {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  #tab-btns {
+    display: none;
+  }
+  #signin-h {
+    margin-top:0;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-side-menu {
     position: relative;

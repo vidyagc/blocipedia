@@ -1,26 +1,32 @@
-<div><a name="signin"></a>
-<h3 style="margin-top:0">Sign In</h3>
-<%= form_for(:user, :url => session_path(:user), :html => { :class =>
-'auth-form-for'}) do |f| %>
-    <p><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.text_field :email, placeholder: "email", class: "auth-form" %></p>
-    <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password, autocomplete: "off", placeholder: "password", class: "auth-form" %></p>
-    <p><%= f.check_box :remember_me %>&nbsp;<%= f.label :remember_me %></p>
-    <p><%= f.submit 'Sign in' %></p>
-    <p><%= link_to "Forgot your password?", new_password_path(:user) %></p>
-    <p><%= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path(:user) %></p>
-<% end %>
+<div id="tab0show" class="tab-content"></div>
+
+<div id="tab1show" class="tab-content">
+    <div><a name="signin"></a>
+    <h3 id="signin-h">Sign In</h3>
+    <%= form_for(:user, :url => session_path(:user), :html => { :class =>
+    'auth-form-for'}) do |f| %>
+        <p><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.text_field :email, placeholder: "email", class: "auth-form" %></p>
+        <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password, autocomplete: "off", placeholder: "password", class: "auth-form" %></p>
+        <p><%= f.check_box :remember_me %>&nbsp;<%= f.label :remember_me %></p>
+        <p><%= f.submit 'Sign in' %></p>
+        <p><%= link_to "Forgot your password?", new_password_path(:user) %></p>
+        <p><%= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path(:user) %></p>
+    <% end %>
+    </div>
 </div>
 
-<div>
-<h3>New User</h3>
-<%= form_for(:user, :url => registration_path(:user), :html => { :class =>
-'auth-form-for'}) do |f| %>
-    <p><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.text_field :email, placeholder: "email", class: "auth-form" %></p>
-    <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password, autocomplete: "off", placeholder: "password", class: "auth-form" %></p>
-     <% if @minimum_password_length %>
-     <em>(<%= @minimum_password_length %> characters minimum)</em>
-     <% end %>
-    <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password", class: "auth-form" %></p>
-    <p style="margin-top:15px"><%= f.submit 'Sign up' %></p>
-<% end %>
+<div id="tab2show" class="tab-content">
+    <div>
+    <h3>New User</h3>
+    <%= form_for(:user, :url => registration_path(:user), :html => { :class =>
+    'auth-form-for'}) do |f| %>
+        <p><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.text_field :email, placeholder: "email", class: "auth-form" %></p>
+        <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password, autocomplete: "off", placeholder: "password", class: "auth-form" %></p>
+         <% if @minimum_password_length %>
+         <em>(<%= @minimum_password_length %> characters minimum)</em>
+         <% end %>
+        <p><i class="fa fa-lock" aria-hidden="true"></i><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password", class: "auth-form" %></p>
+        <p style="margin-top:15px"><%= f.submit 'Sign up' %></p>
+    <% end %>
+    </div>
 </div>

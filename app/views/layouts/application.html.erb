@@ -19,7 +19,7 @@
   <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
       
    </head>
-   <body>
+   <body onresize="toggleTabs()">
 
       <div class="container home-font">
          <div class="row">
@@ -118,5 +118,30 @@
          </div>
          
       </div>
+      
+      <script>
+      var su;
+         function toggleTabs() {
+            var $contents = $('.tab-content');
+            if (window.matchMedia('(max-width: 767px)').matches) {
+               $contents.slice(1).hide();
+               $('.tab').click(function() {
+                  var $target = $('#' + this.id + 'show').show();
+                  $contents.not($target).hide();
+               });
+            }
+            else {
+               $contents.slice(1).show();
+            }
+         }
+         
+         toggleTabs();
+         
+         if (su==1)
+         {
+            $('#tab2show').show();  
+         }
+      </script>
+      
    </body>
 </html>
