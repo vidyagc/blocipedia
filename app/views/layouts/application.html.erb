@@ -46,14 +46,14 @@
          <div class="row">
 		      <div class="col-md-2">
                <div class="nav-side-menu">
-                  <div class="brand"><%= link_to "<u><h3 style='font-weight: bold; color:#80668a;'>Wikit <i class='fa fa-pencil' aria-hidden='true'></i></h3></u>".html_safe, welcome_index_path, class: "nav-logo", :onclick => "su=0" %></div>
+                  <div class="brand"><%= link_to "<u><h3 style='font-weight: bold; color:#80668a;'>Wikit <i class='fa fa-pencil' aria-hidden='true'></i></h3></u>".html_safe, welcome_index_path, class: "nav-logo", :onclick => "showTab=0" %></div>
                   <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content" ></i>
                   
                   <div class="menu-list">
                      <ul id="menu-content" class="menu-content collapse list-group">
                         <% if !user_signed_in? %>
                         <li class="list-group-item mid-list-item">
-                           <%= link_to "<i class='fa fa-home' aria-hidden='true'></i> Home / Sign in".html_safe, welcome_index_path, :onclick => "su=0" %>
+                           <%= link_to "<i class='fa fa-home' aria-hidden='true'></i> Home / Sign in".html_safe, welcome_index_path, :onclick => "showTab=0" %>
                         </li>
                         <% end %>
             
@@ -120,32 +120,46 @@
       </div>
       
       <script>
-      var su;
          function toggleTabs() {
             var $contents = $('.tab-content');
+            // check if view width is <= 767px
             if (window.matchMedia('(max-width: 767px)').matches) {
-               $contents.slice(1).hide();
+               // if view width is <= 767px, hide all of the tab-content elements
+               $contents.hide();
+               // show a tab-content when its corresponding button is clicked. 
                $('.tab').click(function() {
+                  // retreives the ID of the tab-content element based on the ID of the clicked div and shows it.
                   var $target = $('#' + this.id + 'show').show();
+                  // hides the tab-content elements whose corresponding button was not clicked (otherwise multiple elements can show at once)
                   $contents.not($target).hide();
                });
             }
             else {
-               $contents.slice(1).show();
+               // if view width is >= 768px, show all of the tab-content elements
+               $contents.show();
             }
          }
          
+         // run toggleTabs() on window load
          toggleTabs();
          
-         if (su==1)
+         var showTab;
+         if (showTab==1)
          {
             $('#tab2show').show();
          }
-         else if (su==2)
+         else if (showTab==2)
          {
             $('#tab1show').show();
          }
-         else toggleTabs();
+         else 
+         {
+            // hide all tab-content elements when the landing page is redirected to 
+            // (showTab is set to 0 in the an onclick on links to landing page)
+            $('#tab1show').hide(); 
+            $('#tab2show').hide();
+         }
+         
       </script>
       
    </body>
