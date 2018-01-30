@@ -269,9 +269,10 @@ div .panel-heading {
     border:1px solid #cfbfd6;
 }
 
-.scroll-top .btn:focus {
+.scroll-top .btn:focus, .btn:active {
     outline: 0;
     background-color: #80668a;
     color: #ece5ee;
     border:1px solid #715b7a;
 }
+
