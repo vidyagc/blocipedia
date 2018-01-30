@@ -248,3 +248,27 @@ div .panel-heading {
   margin-bottom:0 !important;
   vertical-align: middle;
 }
+
+.scroll-top {
+    z-index: 1049;
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    width: 50px;
+    height: 50px;
+}
+
+.scroll-top .btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 28px;
+    background-color: #ece5ee;
+    color: #80668a;
+    border:1px solid #cfbfd6;
+}
+
+.scroll-top .btn:focus {
+    outline: 0;
+}

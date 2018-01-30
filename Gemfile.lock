@@ -99,6 +99,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
+    jquery-easing-rails (0.0.2)
+      railties (>= 3.1.0)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -245,6 +247,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-rails
+  jquery-easing-rails
   jquery-rails
   paperclip!
   pg
